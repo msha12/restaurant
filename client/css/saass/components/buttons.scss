@@ -1,0 +1,21 @@
+.btn {
+    background-color: $main-color;
+    display: block;
+    border: none;
+    outline: none;
+    font-family: $main-font;
+    color: white;
+    width: 174px;
+    height: 43px;
+    font-size: 18px;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 28px;
+    cursor: pointer;
+    &:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+}
+

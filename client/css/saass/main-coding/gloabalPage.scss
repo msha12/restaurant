@@ -1,0 +1,15 @@
+body{
+    section{
+        background-size: cover;
+    }
+    
+}
+
+    hr {
+        width: 50px;
+        height: 2px;
+        background-color: $main-color;
+        margin-top: 14px;
+        margin-bottom: 40px;
+        position: relative;
+    }

@@ -1,0 +1,499 @@
+/**start about-us**/
+.about-us {
+    margin-top: $mar-top;
+
+    .container {
+        border-bottom: 2px solid #0000001f;
+        box-shadow: 1px 3px 20px 0px #00000052;
+        padding-top: $pad-top;
+        padding-bottom: 16px;
+    }
+
+    .text {
+        padding-top: 50px;
+
+        h3 {
+            text-align: center;
+            font-size: 37px;
+            margin-top: 22px;
+            margin-bottom: 28px;
+            font-family: $second-font;
+        }
+
+        p:first-of-type {
+            font-size: 18px;
+            font-family: $second-font;
+            text-align: center;
+        }
+
+        p:last-of-type {
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            text-align: center;
+            color: #000000a1;
+            font-family: $main-font;
+        }
+
+        button {
+            margin-bottom: 44px;
+        }
+    }
+}
+
+
+/**end about-us**/
+/**start menu**/
+.menu {
+    margin-top: $mar-top;
+
+
+    .icons {
+        height: 92px;
+        width: 600px;
+        margin: auto;
+        box-shadow: 0px 5px 20px 0px #0000002b;
+
+        @media (max-width: 767px) {
+            width: 500px;
+        }
+
+        @media (max-width:546px) {
+            width: 400px;
+        }
+
+        @media (max-width: 440px) {
+
+            height: auto;
+            width: auto;
+            border-bottom: 0;
+        }
+
+        div {
+            float: left;
+            margin-right: 62px;
+            width: 70px;
+            text-align: center;
+            cursor: pointer;
+
+            @media (max-width: 767px) {
+                margin-right: 37px;
+            }
+
+            @media (max-width: 767px) {
+                margin-right: 12px;
+            }
+
+            @media (max-width: 440px) {
+                float: none;
+                margin: auto;
+                margin-bottom: 20px;
+
+            }
+
+
+
+
+            &:last-of-type {
+                margin-right: 0;
+
+                @media (max-width: 440px) {
+
+                    margin: auto;
+
+                }
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+
+                @media (max-width: 767px) {
+                    width: 32px;
+                }
+            }
+
+            p {
+                margin-top: 10px;
+
+            }
+        }
+
+        .overlay {
+            border-bottom: 2px solid $main-color;
+
+        }
+
+    }
+
+    .images1,
+    .images2 {
+        margin-top: 65px;
+
+        .meal {
+            border: 1px solid #eee;
+            box-shadow: 1px 2px 10px 2px #00000038;
+            position: relative;
+            margin-bottom: 30px;
+
+            img {
+                width: 100%;
+            }
+
+            .price {
+                position: absolute;
+                background-color: $main-color;
+                width: 60px;
+                height: 60px;
+                bottom: 28%;
+                right: 3px;
+                border-radius: 50%;
+                border: 3px solid white;
+                box-shadow: 1px 1px 7px #00000040;
+                color: white;
+                text-align: center;
+                line-height: 50px;
+                font-size: 18px;
+                font-family: $num-font;
+
+                @media (min-width: 440px) and (max-width:767px) {
+                    bottom: 18%;
+                }
+
+            }
+
+            p:first-of-type {
+                font-family: 'Rancho', cursive;
+                margin-top: 28px;
+                margin-left: 30px;
+                font-size: 30px;
+                color: $main-color;
+                font-weight: 600;
+                letter-spacing: 1px;
+                margin-bottom: 0;
+            }
+
+            p:last-of-type {
+                margin-left: 30px;
+                font-size: 18px;
+                font-family: $main-font;
+
+                span:nth-of-type(2) {
+                    color: $main-color;
+                    position: relative;
+                    margin-right: 45px;
+
+                    &:after {
+                        content: "";
+                        width: 2px;
+                        height: 14px;
+                        background-color: #dd030157;
+                        position: absolute;
+                        right: -18px;
+                        bottom: 8px;
+
+                    }
+                }
+
+                span:last-of-type {
+                    i {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+/**end menu**/
+
+/**start offer**/
+.offer {
+    margin-top: $mar-top;
+    padding-bottom: 16px;
+    width: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: $pad-top;
+
+    .overlay {
+        position: absolute;
+        background-color: #151414d1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .image {
+        position: relative;
+        animation: move 5s infinite linear;
+        margin-bottom: 52px;
+        overflow: hidden;
+
+        &:hover .overlay-text {
+            left: 0px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .overlay-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: -550px;
+            top: 0;
+            background-color: #15121299;
+            transition: all .8s linear;
+
+            color: white;
+
+
+            .text {
+
+
+                h3 {
+                    margin-top: 46px;
+                    text-align: center;
+                    font-size: 25px;
+                }
+
+                p {
+                    font-size: 21px;
+                    margin: auto;
+                    width: 208px;
+                    text-align: center;
+                    margin-top: 20px;
+                    color: #ffffffa3;
+                    margin-bottom: 39px;
+                }
+
+                button {
+                    margin-bottom: 40px;
+                }
+
+
+            }
+
+        }
+
+    }
+
+    .image1 {
+        animation-delay: .4s
+    }
+
+    .image3 {
+        animation-delay: .8s
+    }
+}
+
+@keyframes move {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    25% {
+        transform: translateY(-30px)
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+
+    75% {
+        transform: translateY(30px)
+    }
+}
+
+/**end offer**/
+
+/**start team**/
+.team {
+    margin-top: $mar-top;
+    padding-top: $pad-top;
+    position: relative;
+    padding-bottom: 26px;
+
+    .overlay {
+        background-color: #151414d1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%
+    }
+
+    .chef {
+        width: 270px !important;
+        cursor: pointer;
+        margin-right: 24px;
+        background-color: rgba(0, 0, 0, 0.53);
+
+        img {
+            width: 100%;
+            display: inline;
+        }
+
+        p:first-of-type {
+            margin-top: 18px;
+            font-size: $pad-top;
+            text-align: center;
+            font-family: $num-font;
+            margin-bottom: 0;
+            color: $main-color;
+            cursor: pointer;
+            color: white;
+        }
+
+        p:last-of-type {
+            text-align: center;
+            font-size: 21px;
+            color: white;
+            margin-bottom: 0px;
+        }
+
+        span {
+            display: block;
+            text-align: center;
+            margin-bottom: 25px;
+
+
+            i {
+                margin-right: 7px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .slick-next,
+    .slick-prev {
+        display: none !important;
+    }
+}
+
+/**end team**/
+
+/**start reservation**/
+.reservation {
+    margin-top: $mar-top;
+    padding-bottom: 16px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    position: relative;
+    padding-top: $pad-top;
+
+    .overlay {
+       
+        background-color: #151414d1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+    }
+
+
+    h2 {
+        text-align: center;
+        font-family: "Pacifico", cursive;
+        font-size: 36px;
+        letter-spacing: 2px;
+        color: #DD0301;
+
+
+    }
+
+    p {
+        text-align: center;
+        margin: auto;
+        font-size: 18px;
+        color: #ffffff91;
+        margin-bottom: 52px;
+        width: 80%;
+        font-family: $main-font;
+    }
+
+
+    input,
+    select,
+    textarea {
+        background-color: #161616;
+        border: none;
+        outline: none;
+        margin-bottom: 36px;
+        color: #5F5F5F;
+        border-radius: 0;
+        width: 92%;
+        margin-left: auto;
+
+
+    }
+
+    .form-control:focus {
+        color: #5F5F5F;
+        background-color: #161616;
+        border-color: none;
+        outline: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    select option {
+        background-color: white !important;
+        color: black;
+        font-size: 18px;
+    }
+
+    .right-form div,
+    .left-form div {
+        position: relative;
+
+    }
+
+    .left-form div i,
+    .right-form div i {
+        position: absolute;
+        background-color: #161616;
+        width: 8%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        text-align: center;
+        line-height: 35px;
+        color: #ffffff61;
+
+        &:after {
+            content: "";
+            width: 2px;
+            height: 18px;
+            top: 10px;
+            left: 100%;
+            background-color: #ffffff36;
+            position: absolute;
+        }
+
+
+    }
+
+    textarea {
+        width: 100% !important;
+        min-height: 144px;
+    }
+
+    button {
+
+        margin-bottom: 26px;
+    }
+}
+
+/**end reservation**/

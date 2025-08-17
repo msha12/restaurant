@@ -1,0 +1,158 @@
+/**start header**/
+
+.header {
+    background-image: url(../../../images/header2.jpeg);
+    height: 100vh;
+    position: relative;
+
+    .overlay {
+        position: absolute;
+        background-color: #151414b8;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .navbar-light {
+        z-index: 231;
+        padding-top: 20px;
+        width: 100%;
+
+        .navbar-brand {
+            font-family: $bran-font;
+            color: white;
+            font-size: 36px;
+            transition: all .4s linear;
+
+            &:hover {
+                color: $main-color !important;
+            }
+
+            p {
+
+                display: inline-block;
+                font-size: 22px;
+            }
+        }
+    }
+
+    .navbar-nav .nav-item a {
+        font-family: $main-font;
+        font-size: 20px;
+        color: white !important;
+        letter-spacing: .6px;
+        margin-right: 15px;
+        letter-spacing: 1px;
+        transition: all .4s linear;
+
+        @media (max-width: 1200px) {
+            margin-right: 5px;
+        }
+
+        &:hover {
+
+            background-color: $main-color;
+            border-radius: 4px;
+
+        }
+    }
+
+    .navbar-light .navbar-toggler {
+        color: white;
+        border-color: white;
+        background-color: $main-color;
+    }
+
+    .text {
+        position: relative;
+        color: white;
+        transform: translateY(50%);
+
+
+        svg {
+            height: 70px;
+            width: 70px;
+            display: block;
+            margin: auto;
+
+
+        }
+
+
+        h1 {
+            font-size: 100px;
+            font-family: $second-font;
+            margin-top: 10px;
+            text-align: center;
+
+            @media (max-width: 992px) {
+                font-size: 70px;
+                margin-top: 24px;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 50px;
+                margin-top: 24px;
+            }
+
+            @media (max-width: 575px) {
+                font-size: 32px;
+                margin-top: 14px;
+            }
+
+            .typed-cursor {
+                opacity: 1;
+                animation: blink .7s infinite
+            }
+
+            @keyframes blink {
+                0% {
+                    opacity: 1
+                }
+
+                50% {
+                    opacity: 0
+                }
+
+                100% {
+                    opacity: 1
+                }
+            }
+
+        }
+
+        p {
+            margin: auto;
+
+            font-size: 49px;
+            font-family: 'Rancho', cursive;
+            letter-spacing: 4px;
+            text-align: center;
+
+            @media (max-width: 767px) {
+                font-size: 40px;
+                margin-top: 20px;
+
+                @media (max-width: 575px) {
+                    font-size: 20px;
+                    
+                }
+            }
+
+            svg {
+                display: inline;
+                height: 49px;
+                width: 49px;
+
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/**end header**/
