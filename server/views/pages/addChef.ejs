@@ -1,0 +1,60 @@
+
+<div class="container mt-5">
+  <h2 class="mb-4 fw-bold text-primary">Add Chef</h2>
+
+  <form action="/chef/add" method="POST" enctype="multipart/form-data" class="p-4 rounded shadow-sm">
+
+    <div class="mb-4">
+      <label for="name" class="form-label">Chef Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter chef name" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="experienceYears" class="form-label">Experience Years</label>
+      <input type="number" class="form-control" id="experienceYears" name="experienceYears" placeholder="Enter Experience Years" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="image" class="form-label">Upload Image</label>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="previewImage(event)" required>
+      <div class="mt-2">
+        <img id="imagePreview" src="#" alt="Image Preview" class="rounded" style="display:none; width:150px; height:150px; object-fit:cover;">
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="type" class="form-label">Type</label>
+      <select class="form-select" id="type" name="type" required>
+        <option value="" selected disabled>Select Type</option>
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat %>"><%= cat %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success px-4 py-2 fw-bold">
+      <i class="bi bi-plus-circle me-2"></i> Save Meal
+    </button>
+
+  </form>
+</div>
+
+<script>
+function previewImage(event) {
+  const preview = document.getElementById('imagePreview');
+  preview.src = URL.createObjectURL(event.target.files[0]);
+  preview.style.display = 'block';
+}
+
+const checkbox = document.getElementById('available');
+const badge = document.getElementById('availabilityBadge');
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    badge.textContent = 'Yes';
+    badge.className = 'badge bg-success ms-2';
+  } else {
+    badge.textContent = 'No';
+    badge.className = 'badge bg-danger ms-2';
+  }
+});
+</script>

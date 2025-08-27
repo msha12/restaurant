@@ -1,0 +1,76 @@
+<div class="mt-5 ms-3">
+  <a href="./reservation/add" class="btn btn-success px-4 py-2 fw-bold shadow-sm d-flex align-items-center" style="width: fit-content;">
+    <i class="bi bi-plus-circle me-2"></i>
+    <span>Add New Reservation</span>
+  </a>
+</div>
+
+<div class="container mt-4">
+  <table class="table table-striped table-bordered text-center align-middle shadow-sm" style="width: 95%;">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Guests</th>
+        <th scope="col">Notes</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% allReservations.forEach((res, index) => { %>
+        <tr>
+          <th scope="row"><%= index + 1 %></th>
+          <td><%= res.name %></td>
+          <td><%= res.phone %></td>
+          <td><%= res.date.toLocaleDateString() %></td>
+          <td><%= res.time %></td>
+          <td><%= res.peopleCount %></td>
+          <td><%= res.notes || '-' %></td>
+          <td>
+            <span class="badge <%= res.status === 'confirmed' ? 'bg-success' : (res.status === 'pending' ? 'bg-warning' : 'bg-danger') %>">
+              <%= res.status %>
+            </span>
+          </td> 
+          <td>
+            <a href="/reservation/edit/<%= res._id %>" 
+               class="btn btn-outline-warning btn-sm me-1" 
+               data-bs-toggle="tooltip" 
+               data-bs-title="Edit Meal">
+              <i class="bi bi-pencil"></i>
+            </a>
+            <form action="/reservation/<%= res._id %>?_method=DELETE" method="POST" style="display:inline;">
+              <button type="submit" class="btn btn-outline-danger btn-sm">
+                <i class="bi bi-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+    <ul class="pagination">
+      <!-- Previous -->
+      <li class="page-item <%= page === 1 ? 'disabled' : '' %>">
+        <a class="page-link" href="/reservation?page=<%= page - 1 %>">Previous</a>
+      </li>
+
+      <!-- Pages -->
+      <% for(let i = 1; i <= totalPages; i++) { %>
+        <li class="page-item <%= page === i ? 'active' : '' %>">
+          <a class="page-link" href="/reservation?page=<%= i %>"><%= i %></a>
+        </li>
+      <% } %>
+
+      <!-- Next -->
+      <li class="page-item <%= page === totalPages ? 'disabled' : '' %>">
+        <a class="page-link" href="/reservation?page=<%= page + 1 %>">Next</a>
+      </li>
+    </ul>
+</div>

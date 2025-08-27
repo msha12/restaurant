@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <h2 class="mb-4 fw-bold text-primary">Edit Package</h2>
+
+  <form action="/package/<%= package._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="p-4 rounded shadow-sm">
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" value="<%= package.title %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="details" class="form-label">Details</label>
+      <textarea class="form-control" id="details" name="details" rows="3" required><%= package.details %></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Upload Image</label>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="previewImage(event)">
+      <div class="mt-2">
+        <img id="imagePreview" src="/uploads/<%= package.image %>" alt="Image Preview" class="rounded" style="width:150px; height:150px; object-fit:cover;">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="fromDate" class="form-label">From Date</label>
+      <input type="date" class="form-control" id="fromDate" name="fromDate" value="<%= package.fromDate.toISOString().split('T')[0] %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="toDate" class="form-label">To Date</label>
+      <input type="date" class="form-control" id="toDate" name="toDate" value="<%= package.toDate.toISOString().split('T')[0] %>" required>
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="isActive" name="isActive" value="true" <%= package.isActive ? 'checked' : '' %>>
+      <label class="form-check-label" for="isActive">Active</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">
+      <i class="bi bi-save me-2"></i> Update Package
+    </button>
+  </form>
+</div>
+
+<script>
+function previewImage(event) {
+  const preview = document.getElementById('imagePreview');
+  preview.src = URL.createObjectURL(event.target.files[0]);
+  preview.style.display = 'block';
+}
+</script>

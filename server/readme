@@ -1,0 +1,17 @@
+Latest changes made in the project:
+
+1. Added "Add New Meal" page (newItem.ejs) with a form containing fields: meal name, price, description, image, category, chef, and availability checkbox.
+2. Updated the "All Menu" page (allMenu.ejs) to show an "Add New Meal" button and display meal data in a table.
+3. Updated the meal database model (menuModel.js) to include new fields: category, chef, and changed the field name from available to isAvailable.
+4. Added new controller functions in menuController.js:
+   - getAllMenu: to display all meals.
+   - addItemPage: to render the add meal page and pass categories and chefs.
+   - addItem: to add a new meal to the database.
+5. Updated routes in menuRoute.js to add routes for adding and displaying new meals.
+6. Connected all pages using EJS and passed required data (such as categories and chefs) from the controller to the views.
+
+Note: Image upload is not yet fully implemented; only the image name is saved
+
+
+هنكمل لما ادوس علي اضافه وجبه 
+و كمان هنتعامل مع اضافه الصور و عرضها

@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center mt-5">
+  <div class="card w-75 shadow">
+    <div class="card-header bg-dark text-white text-center fw-bold fs-5">
+      Meal Details
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered text-center align-middle">
+        <thead class="table-secondary">
+          <tr>
+            <th scope="col">Field</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-light">
+            <td class="fw-bold">Name</td>
+            <td><%= meal.name %></td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Price</td>
+            <td>$<%= meal.price %></td>
+          </tr>
+          <tr class="table-light">
+            <td class="fw-bold">Description</td>
+            <td><%= meal.description %></td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Category</td>
+            <td><%= meal.category %></td>
+          </tr>
+          <tr class="table-light">
+            <td class="fw-bold">Chef</td>
+            <td><%= meal.chef %></td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Available</td>
+            <td><%= meal.isAvailable ? 'Yes' : 'No' %></td>
+          </tr>
+          <tr class="table-light">
+            <td class="fw-bold">Image</td>
+            <td>
+              <img src="/uploads/<%= meal.image %>" 
+                   alt="<%= meal.name %>" 
+                   class="img-thumbnail meal-img" 
+                   style="width: 150px; height: 150px; object-fit: cover;">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="/menu/edit/<%= meal._id %>" class="btn btn-primary px-4">Edit</a>
+        <a href="/menu/delete/<%= meal._id %>" class="btn btn-danger px-4"
+           onclick="return confirm('Are you sure you want to delete this meal?');">
+          Delete
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

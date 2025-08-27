@@ -1,0 +1,72 @@
+<div class="container mt-5">
+  <h2 class="mb-4 fw-bold text-primary">Add Package</h2>
+
+  <form action="/package/add" method="POST" enctype="multipart/form-data" class="p-4 rounded shadow-sm">
+
+    <!-- Title -->
+    <div class="mb-4">
+      <label for="title" class="form-label">Package Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Enter package title" required>
+    </div>
+
+    <!-- Details -->
+    <div class="mb-4">
+      <label for="details" class="form-label">Package Details</label>
+      <textarea class="form-control" id="details" name="details" rows="3" placeholder="Enter package details" required></textarea>
+    </div>
+
+    <!-- Image -->
+    <div class="mb-4">
+      <label for="image" class="form-label">Upload Image</label>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="previewImage(event)" required>
+      <div class="mt-2">
+        <img id="imagePreview" src="#" alt="Image Preview" class="rounded" style="display:none; width:150px; height:150px; object-fit:cover;">
+      </div>
+    </div>
+
+    <!-- From Date -->
+    <div class="mb-4">
+      <label for="fromDate" class="form-label">From Date</label>
+      <input type="date" class="form-control" id="fromDate" name="fromDate" required>
+    </div>
+
+    <!-- To Date -->
+    <div class="mb-4">
+      <label for="toDate" class="form-label">To Date</label>
+      <input type="date" class="form-control" id="toDate" name="toDate" required>
+    </div>
+
+    <!-- Active Status -->
+    <div class="mb-4 d-flex align-items-center">
+      <label for="isActive" class="form-label me-3">Active</label>
+      <input type="checkbox" id="isActive" name="isActive" checked>
+      <span id="activeBadge" class="badge bg-success ms-2">Yes</span>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-success px-4 py-2 fw-bold">
+      <i class="bi bi-plus-circle me-2"></i> Save Package
+    </button>
+
+  </form>
+</div>
+
+<script>
+function previewImage(event) {
+  const preview = document.getElementById('imagePreview');
+  preview.src = URL.createObjectURL(event.target.files[0]);
+  preview.style.display = 'block';
+}
+
+const checkbox = document.getElementById('isActive');
+const badge = document.getElementById('activeBadge');
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    badge.textContent = 'Yes';
+    badge.className = 'badge bg-success ms-2';
+  } else {
+    badge.textContent = 'No';
+    badge.className = 'badge bg-danger ms-2';
+  }
+});
+</script>

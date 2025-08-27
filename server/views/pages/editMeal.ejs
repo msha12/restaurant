@@ -1,0 +1,79 @@
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 rounded-3 bg-dark text-white">
+    <div class="card-header bg-warning text-dark text-center fw-bold fs-4">
+      Edit Meal
+    </div>
+    <div class="card-body">
+      <form action="/menu/<%= meal._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        
+        <!-- Meal Name -->
+        <div class="mb-3">
+          <label for="name" class="form-label fw-bold">Meal Name</label>
+          <input type="text" class="form-control form-control-lg" id="name" name="name" 
+                 value="<%= meal.name %>" required>
+        </div>
+
+        <!-- Price -->
+        <div class="mb-3">
+          <label for="price" class="form-label fw-bold">Price</label>
+          <input type="number" class="form-control form-control-lg" id="price" name="price" 
+                 value="<%= meal.price %>" required>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label for="description" class="form-label fw-bold">Description</label>
+          <textarea class="form-control bg-dark text-white border-secondary" id="description" 
+                    name="description" rows="3"><%= meal.description %></textarea>
+        </div>
+
+        <!-- Image -->
+        <div class="mb-3">
+          <label for="image" class="form-label fw-bold">Upload Image</label>
+          <input type="file" class="form-control" id="image" name="image" accept="image/*">
+          <% if (meal.image) { %>
+            <div class="mt-2 text-center">
+              <p class="fw-semibold">Current Image:</p>
+              <img src="/uploads/<%= meal.image %>" alt="<%= meal.name %>" 
+                   class="img-thumbnail" style="max-width: 200px; height: auto;">
+            </div>
+          <% } %>
+        </div>
+
+        <!-- Category -->
+        <div class="mb-3">
+          <label for="category" class="form-label fw-bold">Category</label>
+          <select class="form-select bg-dark text-white border-secondary" id="category" name="category" required>
+            <% categories.forEach(cat => { %>
+              <option value="<%= cat %>" <%= meal.category === cat ? 'selected' : '' %>><%= cat %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <!-- Chef -->
+        <div class="mb-3">
+          <label for="chef" class="form-label fw-bold">Chef</label>
+          <select class="form-select bg-dark text-white border-secondary" id="chef" name="chef" required>
+            <% chefs.forEach(ch => { %>
+              <option value="<%= ch %>" <%= meal.chef === ch ? 'selected' : '' %>><%= ch %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <!-- Available -->
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="checkbox" id="isAvailable" name="isAvailable" 
+                 <%= meal.isAvailable ? 'checked' : '' %>>
+          <label class="form-check-label fw-bold" for="isAvailable">Available</label>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-warning btn-lg px-5 fw-bold">
+            <i class="bi bi-pencil-square me-2"></i> Update Meal
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

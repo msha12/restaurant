@@ -21,7 +21,7 @@ const menuSchema = new mongoose.Schema({
     image: {
         type: String,
         required: true,
-        trim: true
+        default: 'uploads/default.jpg' // Assuming a default image if none is provided
     },
     category: {
         type: String,
@@ -46,3 +46,5 @@ const menuSchema = new mongoose.Schema({
 }); 
 
 const Menu = mongoose.model('Menu', menuSchema);
+
+module.exports = Menu;

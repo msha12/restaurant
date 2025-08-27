@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <h2 class="mb-4 fw-bold text-primary">Edit Reservation</h2>
+
+  <form action="/reservation/<%= reservation._id %>?_method=PUT" method="POST" class="p-4 rounded shadow-sm">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="<%= reservation.name %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="text" class="form-control" id="phone" name="phone" value="<%= reservation.phone %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">Date</label>
+      <input type="date" class="form-control" id="date" name="date" value="<%= reservation.date.toISOString().split('T')[0] %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="time" class="form-label">Time</label>
+      <input type="time" class="form-control" id="time" name="time" value="<%= reservation.time %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="peopleCount" class="form-label">Number of People</label>
+      <input type="number" class="form-control" id="peopleCount" name="peopleCount" value="<%= reservation.peopleCount %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="notes" class="form-label">Notes</label>
+      <textarea class="form-control" id="notes" name="notes" rows="3"><%= reservation.notes %></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" id="status" name="status" required>
+        <option value="pending" <%= reservation.status === 'pending' ? 'selected' : '' %>>Pending</option>
+        <option value="confirmed" <%= reservation.status === 'confirmed' ? 'selected' : '' %>>Confirmed</option>
+        <option value="cancelled" <%= reservation.status === 'cancelled' ? 'selected' : '' %>>Cancelled</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">
+      <i class="bi bi-save me-2"></i> Update Reservation
+    </button>
+  </form>
+</div>

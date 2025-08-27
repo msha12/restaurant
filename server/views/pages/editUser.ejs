@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <h2 class="mb-4 fw-bold text-primary">Edit User</h2>
+
+  <form action="/user/<%= user._id %>?_method=PUT" method="POST" class="p-4 rounded shadow-sm">
+
+    <div class="mb-4">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" class="form-control" id="name" name="username" value="<%= user.username %>" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter new password if you want to change" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="role" class="form-label">Role</label>
+      <select class="form-select" id="role" name="role" required>
+        <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Admin</option>
+        <option value="manager" <%= user.role === 'manager' ? 'selected' : '' %>>Manager</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">
+      <i class="bi bi-save me-2"></i> Update User
+    </button>
+
+  </form>
+</div>

@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center mt-5">
+  <div class="card w-75 shadow">
+    <div class="card-header bg-dark text-white text-center fw-bold fs-5">
+      Chef Details
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered text-center align-middle">
+        <thead class="table-secondary">
+          <tr>
+            <th scope="col">Field</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-light">
+            <td class="fw-bold">Name</td>
+            <td><%= chef.name %></td>
+          </tr>
+          <tr>
+            <td class="fw-bold">experienceYears</td>
+            <td><%= chef.experienceYears %></td>
+          </tr>
+          <tr class="table-light">
+            <td class="fw-bold">Type</td>
+            <td><%= chef.type %></td>
+          </tr>
+          <tr class="table-light">
+            <td class="fw-bold">Image</td>
+            <td>
+              <img src="/uploads/<%= chef.image %>" 
+                   alt="<%= chef.name %>" 
+                   class="img-thumbnail chef-img" 
+                   style="width: 150px; height: 150px; object-fit: cover;">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="d-flex justify-content-center gap-3 mt-4">
+
+        <form action="/chef/edit/<%= chef._id %>" method="get" style="display:inline;">
+            <button type="submit" class="btn btn-outline-warning btn-sm">
+              <i class="bi bi-pencil"></i>
+            </button>
+        </form>
+
+        <form action="/chef/<%= chef._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-outline-danger btn-sm">
+              <i class="bi bi-trash"></i>
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

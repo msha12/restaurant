@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 rounded-3 bg-dark text-white">
+    <div class="card-header bg-warning text-dark text-center fw-bold fs-4">
+      Edit Chef
+    </div>
+    <div class="card-body">
+      <form action="/chef/<%= chef._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        
+        <!-- chef Name -->
+        <div class="mb-3">
+          <label for="name" class="form-label fw-bold">Chef Name</label>
+          <input type="text" class="form-control form-control-lg" id="name" name="name" 
+                 value="<%= chef.name %>" required>
+        </div>
+
+        <!-- experienceYears -->
+        <div class="mb-3">
+          <label for="experienceYears" class="form-label fw-bold">Experience Years</label>
+          <input type="number" class="form-control form-control-lg" id="experienceYears" name="experienceYears" 
+                 value="<%= chef.experienceYears %>" required>
+        </div>
+
+        <!-- Image -->
+        <div class="mb-3">
+          <label for="image" class="form-label fw-bold">Upload Image</label>
+          <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+          <% if (chef.image) { %>
+            <div class="mt-2 text-center">
+              <p class="fw-semibold">Current Image:</p>
+              <img src="/uploads/<%= chef.image %>" alt="<%= chef.name %>" 
+                   class="img-thumbnail" style="max-width: 200px; height: auto;">
+            </div>
+          <% } %>
+        </div>
+
+        <!-- type -->
+        <div class="mb-3">
+          <label for="type" class="form-label fw-bold">type</label>
+          <select class="form-select bg-dark text-white border-secondary" id="type" name="type" required>
+            <% categories.forEach(cat => { %>
+              <option value="<%= cat %>" <%= chef.type === cat ? 'selected' : '' %>><%= cat %></option>
+            <% }) %>
+          </select>
+        </div>
+
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-warning btn-lg px-5 fw-bold">
+            <i class="bi bi-pencil-square me-2"></i> Update chef
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

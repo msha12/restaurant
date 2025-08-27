@@ -1,0 +1,101 @@
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+      <a href="/user" class="card text-center border-primary text-decoration-none border-3 shadow-sm card-hover h-100 bg-white">
+        <div class="card-body">
+          <i class="bi bi-people-fill fs-1 text-primary"></i>
+          <h6 class="mt-2">Users</h6>
+          <h2 class="fw-bold text-primary"><%= userCount %></h2>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="/reservation" class="card text-center border-success text-decoration-none border-3 shadow-sm card-hover h-100 bg-white">
+        <div class="card-body">
+          <i class="bi bi-calendar-check fs-1 text-success"></i>
+          <h6 class="mt-2">Reservations</h6>
+          <h2 class="fw-bold text-success"><%= reservationCount %></h2>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="/chef" class="card text-center border-warning text-decoration-none border-3 shadow-sm card-hover h-100 bg-white">
+        <div class="card-body">
+          <i class="bi bi-person-workspace fs-1 text-warning"></i>
+          <h6 class="mt-2">Chefs</h6>
+          <h2 class="fw-bold text-warning"><%= chefCount %></h2>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="/menu" class="card text-center border-danger text-decoration-none border-3 shadow-sm card-hover h-100 bg-white">
+        <div class="card-body">
+          <i class="bi bi-egg-fried fs-1 text-danger"></i>
+          <h6 class="mt-2">Meals</h6>
+          <h2 class="fw-bold text-danger"><%= menuCount %></h2>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="/package" class="card text-center border-info text-decoration-none border-3 shadow-sm card-hover h-100 bg-white">
+        <div class="card-body">
+          <i class="bi bi-box-seam fs-1 text-info"></i>
+          <h6 class="mt-2">Packages</h6>
+          <h2 class="fw-bold text-info"><%= packageCount %></h2>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    color: #000 !important;
+  }
+
+  .card-hover:hover .card-body i,
+  .card-hover:hover .card-body h6,
+  .card-hover:hover .card-body h2 {
+    color: #000 !important;
+  }
+
+  /* ألوان الباكجراوند حسب البوردر */
+  .card-hover.border-primary:hover {
+    background-color: #0d6efd !important;
+  }
+
+  .card-hover.border-success:hover {
+    background-color: #198754 !important;
+  }
+
+  .card-hover.border-warning:hover {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+  }
+
+  .card-hover.border-warning:hover .card-body i,
+  .card-hover.border-warning:hover .card-body h6,
+  .card-hover.border-warning:hover .card-body h2 {
+    color: #000 !important;
+  }
+
+  .card-hover.border-danger:hover {
+    background-color: #dc3545 !important;
+  }
+
+  .card-hover.border-info:hover {
+    background-color: #0dcaf0 !important;
+  }
+</style>
+
+

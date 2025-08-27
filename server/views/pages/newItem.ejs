@@ -1,0 +1,82 @@
+<div class="container mt-5">
+  <h2 class="mb-4 fw-bold text-primary">Add New Meal</h2>
+
+  <form action="/menu/addItem" method="POST" enctype="multipart/form-data" class="p-4 rounded shadow-sm">
+
+    <div class="mb-4">
+      <label for="name" class="form-label">Meal Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter meal name" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" class="form-control" id="price" name="price" placeholder="Enter price" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter meal description"></textarea>
+    </div>
+
+    <div class="mb-4">
+      <label for="image" class="form-label">Upload Image</label>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="previewImage(event)">
+      <div class="mt-2">
+        <img id="imagePreview" src="#" alt="Image Preview" class="rounded" style="display:none; width:150px; height:150px; object-fit:cover;">
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="category" class="form-label">Category</label>
+      <select class="form-select" id="category" name="category" required>
+        <option value="" selected disabled>Select category</option>
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat %>"><%= cat %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="chef" class="form-label">Chef</label>
+      <select class="form-select" id="chef" name="chef" required>
+        <option value="" selected disabled>Select chef</option>
+        <% chefs.forEach(ch => { %>
+          <option value="<%= ch %>"><%= ch %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="form-check mb-4">
+      <input class="form-check-input" type="checkbox" id="available" name="available" checked>
+      <label class="form-check-label" for="available">
+        Available
+      </label>
+      <span id="availabilityBadge" class="badge bg-success ms-2">Yes</span>
+    </div>
+
+    <button type="submit" class="btn btn-success px-4 py-2 fw-bold">
+      <i class="bi bi-plus-circle me-2"></i> Save Meal
+    </button>
+
+  </form>
+</div>
+
+<script>
+function previewImage(event) {
+  const preview = document.getElementById('imagePreview');
+  preview.src = URL.createObjectURL(event.target.files[0]);
+  preview.style.display = 'block';
+}
+
+const checkbox = document.getElementById('available');
+const badge = document.getElementById('availabilityBadge');
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    badge.textContent = 'Yes';
+    badge.className = 'badge bg-success ms-2';
+  } else {
+    badge.textContent = 'No';
+    badge.className = 'badge bg-danger ms-2';
+  }
+});
+</script>
